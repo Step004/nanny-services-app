@@ -18,10 +18,12 @@ export default function Hero() {
       </div>
       <img src={img} alt="kid" className={css.heroImg} />
       <div className={css.expNan}>
-        <FaCheck />
+        <div className={css.check}>
+          <FaCheck className={css.check} />
+        </div>
         <div className={css.expNanP}>
-          <p>Experienced nannies</p>
-          <p>15,000</p>
+          <p className={css.expNanP1}>Experienced nannies</p>
+          <p className={css.expNanP2}>15,000</p>
         </div>
       </div>
     </section>

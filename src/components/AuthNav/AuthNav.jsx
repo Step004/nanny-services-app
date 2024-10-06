@@ -1,10 +1,14 @@
 import css from "./AuthNav.module.css";
 
-export default function AuthNav() {
+export default function AuthNav({ openLogIn, openReg }) {
   return (
     <div className={css.buttons}>
-      <button className={css.logButton}>Login</button>
-      <button className={css.regButton}>Registration</button>
+      <button className={css.logButton} onClick={openLogIn}>
+        Login
+      </button>
+      <button className={css.regButton} onClick={openReg}>
+        Registration
+      </button>
     </div>
   );
 }

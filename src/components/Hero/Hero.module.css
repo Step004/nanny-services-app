@@ -14,7 +14,6 @@
 
 .heroTitle {
     position: absolute;
-    z-index: 2;
     left: 96px;
     top: 251px;
     width: 517px;
@@ -81,4 +80,42 @@
     padding: 32px;
     box-sizing: border-box;
     display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.expNanP {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.check {
+    border-radius: 13px;
+    width: 52px;
+    height: 52px;
+    background: #103931;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.check svg {
+    width: 20px;
+    height: 16px;
+    fill: #fbfbfb;
+}
+
+.expNanP1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(17, 16, 28, 0.5);
+}
+
+.expNanP2 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 24px;
+    color: #11101c;
 }
