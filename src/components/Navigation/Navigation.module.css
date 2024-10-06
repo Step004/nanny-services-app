@@ -1,15 +1,16 @@
 .link {
-    display: inline-block;
+    /* display: inline-block; */
     text-decoration: none;
-    padding: 12px;
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
-    color: var(--main);
+    color: var(--button-hover);
     font-family: var(--font-family);
-    
 }
 
-.link.active {
-    color: var(--button-hover);
+.active {}
+.navigation{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
 }

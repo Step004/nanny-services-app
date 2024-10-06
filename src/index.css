@@ -1,0 +1,72 @@
+:root {
+    --main: #103931;
+    --text: #fbfbfb;
+    --name-text: #11101c;
+    --white: #fff;
+    --filter-text: rgba(17, 16, 28, 0.3);
+    --bgr-color: #f3f3f3;
+    --button: #103931;
+    --button-hover: #fbfbfb;
+    --button-text-hover: #103931;
+    --rating: #ffc531;
+}
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+li,
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* button {
+    border: none;
+    cursor: pointer;
+} */
+
+.closeModalBtn {
+    width: 24px;
+    height: 24px;
+
+    position: absolute;
+    top: 20px;
+    right: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+}
+
+img {
+    display: block;
+    height: auto;
+}
+

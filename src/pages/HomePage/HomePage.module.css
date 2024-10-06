@@ -1,0 +1,9 @@
+.container {
+    width: 100%;
+    max-width: 1376px;
+    height: 736px;
+    margin: 20px auto;
+    background-color: var(--main);
+    border-radius: 30px;
+    position: relative;
+}

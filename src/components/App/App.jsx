@@ -1,9 +1,10 @@
 import "./App.module.css";
 import { lazy, Suspense } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
-import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
-import RestrictedRout from "../RestrictedRoute/RestrictedRoute.jsx";
-import SharedLayout from "../SharedLayout/SharedLayout.jsx";
+// import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
+// import RestrictedRout from "../RestrictedRoute/RestrictedRoute.jsx";
+import Layout from "../Layout/Layout.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NotFoundPage = lazy(() =>
@@ -14,11 +15,12 @@ const NotFoundPage = lazy(() =>
 function App() {
   return (
     <>
-      <SharedLayout>
+      <Layout>
         <Suspense fallback={<div>Please wait loading page...</div>}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
+          <HelmetProvider>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              {/* <Route
               path="/register"
               element={
                 <RestrictedRout component={<RegisterPage />} redirectTo="/" />
@@ -33,11 +35,13 @@ function App() {
                 />
               }
             />
-            <Route path="/nannies" element={<NanniesPage />} />
-            {/* <Route path="nannies/:id" element={<NanniePage />}>
+            <Route path="/nannies" element={<NanniesPage />} /> */}
+
+              {/* <Route path="nannies/:id" element={<NanniePage />}>
               <Route path="reviews" element={<NannieReviews />} />
             </Route> */}
-            <Route
+
+              {/* <Route
               path="/favorites"
               element={
                 <PrivateRoute
@@ -45,11 +49,12 @@ function App() {
                   redirectTo="/login"
                 />
               }
-            />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+            /> */}
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </HelmetProvider>
         </Suspense>
-      </SharedLayout>
+      </Layout>
     </>
   );
 }

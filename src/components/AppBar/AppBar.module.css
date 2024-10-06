@@ -1,7 +1,26 @@
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #2a363b;
+  justify-content: space-between;
+  width: 1184px;
+  padding: 20px 96px;
+  border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+  position: absolute;
+  z-index: 2;
+}
+
+.logotype {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 117%;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.navAndBut {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 92px;
 }

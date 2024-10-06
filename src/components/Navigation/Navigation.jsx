@@ -7,16 +7,21 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation() {
+  const isLoggedIn = false;
 
   return (
-    <nav>
+    <nav className={css.navigation}>
       <NavLink to="/" className={buildLinkClass}>
-        <p className={css.p }>Home</p>
+        <p className={css.p}>Home</p>
       </NavLink>
 
-      <NavLink to="/catalog" className={buildLinkClass}>
-        Catalog
+      <NavLink to="/nannies" className={buildLinkClass}>
+        Nannies
       </NavLink>
+
+      {isLoggedIn && <NavLink to="/favorites" className={buildLinkClass}>
+        Favorites
+      </NavLink>}
     </nav>
   );
 }
