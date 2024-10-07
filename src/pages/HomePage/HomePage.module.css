@@ -7,3 +7,16 @@
     border-radius: 30px;
     position: relative;
 }
+
+/* style for tablet */
+@media screen and (max-width: 1439px) and (min-width: 768px) {
+.container {
+        width: 100%;
+        max-width: 768px;
+        height: 736px;
+        margin: 20px auto;
+        background-color: var(--main);
+        border-radius: 30px;
+        position: relative;
+    }
+}

@@ -6,8 +6,7 @@ const buildLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
 };
 
-export default function Navigation() {
-  const isLoggedIn = false;
+export default function Navigation({ isLoggedIn }) {
 
   return (
     <nav className={css.navigation}>
@@ -19,9 +18,11 @@ export default function Navigation() {
         Nannies
       </NavLink>
 
-      {isLoggedIn && <NavLink to="/favorites" className={buildLinkClass}>
-        Favorites
-      </NavLink>}
+      {isLoggedIn && (
+        <NavLink to="/favorites" className={buildLinkClass}>
+          Favorites
+        </NavLink>
+      )}
     </nav>
   );
 }

@@ -2,37 +2,23 @@ import Navigation from "../Navigation/Navigation.jsx";
 import UserMenu from "../UserMenu/UserMenu.jsx";
 import AuthNav from "../AuthNav/AuthNav.jsx";
 import css from "./AppBar.module.css";
-import LogInModalWindow from "../LogInModalWindow/LogInModalWindow.jsx";
-import { useState } from "react";
-import RegisterModalWindow from "../RegisterModalWindow/RegisterModalWindow.jsx";
+import { useLocation } from "react-router-dom";
+import clsx from "clsx";
+
 // import { useSelector } from "react-redux";
 // import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 
-export default function AppBar() {
+export default function AppBar({ handleOpenModalLogIn, handleOpenModalRegister }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/"; 
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isLoggedIn = false;
-  const [isOpenLogIn, setIsOpenLogIn] = useState(false);
-  const [isOpenRegister, setIsOpenRegister] = useState(false);
+  const isLoggedIn = true;
 
-  const handleOpenModalLogIn = () => {
-    setIsOpenLogIn(true);
-  };
-  const handleCloseModalLogIn = () => {
-    setIsOpenLogIn(false);
-  };
-
-
-  const handleOpenModalRegister = () => {
-    setIsOpenRegister(true);
-  };
-  const handleCloseModalRegister = () => {
-    setIsOpenRegister(false);
-  };
   return (
-    <header className={css.header}>
+    <header className={clsx(css.header, !isHomePage && css.headerFixed)}>
       <p className={css.logotype}>Nanny.Services</p>
       <div className={css.navAndBut}>
-        <Navigation />
+        <Navigation isLoggedIn={isLoggedIn} />
         {isLoggedIn ? (
           <UserMenu />
         ) : (
@@ -42,10 +28,6 @@ export default function AppBar() {
           />
         )}
       </div>
-      {isOpenLogIn && <LogInModalWindow close={handleCloseModalLogIn} />}
-      {isOpenRegister && (
-        <RegisterModalWindow close={handleCloseModalRegister} />
-      )}
     </header>
   );
 }

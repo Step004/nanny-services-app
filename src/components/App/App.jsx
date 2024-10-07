@@ -7,10 +7,12 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
+const NanniesPage = lazy(() =>
+  import("../../pages/NanniesPage/NanniesPage.jsx")
+);
 const NotFoundPage = lazy(() =>
   import("../../pages/NotFoundPage/NotFoundPage")
 );
-
 
 function App() {
   return (
@@ -20,22 +22,8 @@ function App() {
           <HelmetProvider>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              {/* <Route
-              path="/register"
-              element={
-                <RestrictedRout component={<RegisterPage />} redirectTo="/" />
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <RestrictedRout
-                  component={<LoginPage />}
-                  redirectTo="/contacts"
-                />
-              }
-            />
-            <Route path="/nannies" element={<NanniesPage />} /> */}
+
+              <Route path="/nannies" element={<NanniesPage />} />
 
               {/* <Route path="nannies/:id" element={<NanniePage />}>
               <Route path="reviews" element={<NannieReviews />} />

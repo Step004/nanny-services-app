@@ -1,0 +1,86 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.textFilters {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #8a8a89;
+    margin-bottom: 8px;
+}
+
+.button {
+    background-color: var(--main);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 226px;
+    height: 48px;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 111%;
+    color: #fbfbfb;
+}
+
+.activeButton {
+    background-color: #103931;
+}
+
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.activeButton .arrow {
+    transform: rotate(180deg);
+}
+
+.menu {
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+    padding: 10px 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.menuItem {
+    padding: 10px 20px;
+    cursor: pointer;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 111%;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+.menuItem:hover {
+    background-color: #f1f1f1;
+}
+
+.selected {
+    color: black;
+    font-weight: bold;
+}
+
+.menuItem:not(.selected) {
+    color: #aaa;
+}
+
+.menuItem:not(.selected):hover {
+    color: black;
+}

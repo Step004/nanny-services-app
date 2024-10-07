@@ -1,6 +1,6 @@
 import css from "./AuthNav.module.css";
 
-export default function AuthNav({ openLogIn, openReg }) {
+export default function AuthNav({ openLogIn, openReg, isLoggedIn }) {
   return (
     <div className={css.buttons}>
       <button className={css.logButton} onClick={openLogIn}>

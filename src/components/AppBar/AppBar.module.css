@@ -9,6 +9,11 @@
   z-index: 2;
 }
 
+.headerFixed {
+  position: static;
+  padding: 20px 0;
+}
+
 .logotype {
   font-family: var(--font-family);
   font-weight: 500;
@@ -23,4 +28,17 @@
   flex-direction: row;
   align-items: center;
   gap: 92px;
+}
+
+/* style for tablet */
+@media screen and (max-width: 1439px) and (min-width: 768px) {
+  .header {
+    justify-content: space-between;
+    width: 720px;
+    padding: 20px 24px;
+  }
+
+  .navAndBut {
+    gap: 18px;
+  }
 }

@@ -6,10 +6,21 @@
     line-height: 150%;
     color: var(--button-hover);
     font-family: var(--font-family);
+    position: relative;
 }
 
-.active {}
-.navigation{
+
+.active::after {
+    content: "•";
+    color: var(--button-hover);
+    font-size: 28px;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navigation {
     display: flex;
     flex-direction: row;
     gap: 40px;
