@@ -3,7 +3,7 @@ import css from "./Nannie.module.css";
 import { useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
-import { FaRegStar } from "react-icons/fa6";
+import { FaStar } from "react-icons/fa";
 
 function calculateAge(birthday) {
   const birthDate = new Date(birthday); // Перетворюємо рядок дати на об'єкт Date
@@ -50,17 +50,18 @@ export default function Nannie({ nanny }) {
 
             <div className={css.location}>
               <div className={css.locationRating}>
-                <div className={css.local}>
-                <GrLocation />
-                <p className={css.locationRatingDet}>{nanny.location}</p>
-                </div>
+                <p className={css.locationRatingDet}>
+                  <GrLocation className={css.localIcon} />
+                  {nanny.location}
+                </p>
+
                 <span>|</span>
-                <p>
-                  <FaRegStar />
-                  {nanny.rating}
+                <p className={css.locationRatingDet}>
+                  <FaStar className={css.starRating} />
+                  Rating: {nanny.rating}
                 </p>
                 <span>|</span>
-                <p>
+                <p className={css.locationRatingDet}>
                   Price / 1 hour: <span>{nanny.price_per_hour}$</span>
                 </p>
               </div>
@@ -79,25 +80,25 @@ export default function Nannie({ nanny }) {
 
           <div className={css.characteristic}>
             <p className={css.characteristicDet}>
-              <span>Age: </span>
-              {calculateAge(nanny.birthday)}
+              <span className={css.spanCharacteristic}>Age: </span>
+              <span className={css.age}>{calculateAge(nanny.birthday)}</span>
             </p>
             <p className={css.characteristicDet}>
-              <span>Experience: </span>
+              <span className={css.spanCharacteristic}>Experience: </span>
               {nanny.experience}
             </p>
             <p className={css.characteristicDet}>
-              <span>Kids age: </span>
+              <span className={css.spanCharacteristic}>Kids age: </span>
               {nanny.kids_age}
             </p>
             <p className={css.characteristicDet}>
-              <span>Characters: </span>
+              <span className={css.spanCharacteristic}>Characters: </span>
               {nanny.characters
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(", ")}
             </p>
             <p className={css.characteristicDet}>
-              <span>Education: </span>
+              <span className={css.spanCharacteristic}>Education: </span>
               {nanny.education}
             </p>
           </div>
@@ -113,10 +114,19 @@ export default function Nannie({ nanny }) {
             <ul className={css.reviews}>
               {nanny.reviews.map((review) => (
                 <li className={css.card} key={nanoid()}>
-                  <div>O</div>
-                  <p>{review.reviewer}</p>
-                  <p>{review.rating}</p>
-                  <p>{review.comment}</p>
+                  <div className={css.reviewNameRating}>
+                    <p className={css.firstLater}>
+                      {review.reviewer.charAt(0)}
+                    </p>
+                    <div className={css.reviewerRating}>
+                      <p className={css.reviewer}>{review.reviewer}</p>
+                      <p className={css.rating}>
+                        <FaStar className={css.starRating} />
+                        {review.rating}
+                      </p>
+                    </div>
+                  </div>
+                  <p className={css.description}>{review.comment}</p>
                 </li>
               ))}
             </ul>

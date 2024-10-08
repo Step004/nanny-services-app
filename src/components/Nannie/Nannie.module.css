@@ -99,6 +99,11 @@
 
 .description {
     margin-bottom: 14px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: rgba(17, 16, 28, 0.5);
 }
 
 .characteristic {
@@ -138,8 +143,89 @@
     line-height: 150%;
     color: #11101c;
 }
-.local{
+
+.local {
     display: flex;
     flex-direction: row;
     align-items: start;
+}
+
+.starRating {
+    fill: #ffc531;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.localIcon {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.characteristicDet {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #11101c;
+}
+
+.spanCharacteristic {
+    color: #8a8a89;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 48px;
+}
+
+.firstLater {
+    background: rgba(16, 57, 49, 0.2);
+    border-radius: 100px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    color: #103931;
+}
+
+.age {
+    text-decoration: underline;
+}
+
+.reviewNameRating {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.reviewerRating {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviewer {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 125%;
+    color: #11101c;
+}
+
+.rating {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 129%;
+    color: #11101c;
 }

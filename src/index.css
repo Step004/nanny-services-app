@@ -10,6 +10,29 @@
     --button-text-hover: #103931;
     --rating: #ffc531;
 }
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../src/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2');
+    font-weight: 400;
+    /* Normal */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../src/fonts/HelveticaNeueCyr-Medium.woff2') format('woff2');
+    font-weight: 500;
+    /* Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('../src/fonts/HelveticaNeueCyr-Bold.woff2') format('woff2');
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+}
 
 body {
     font-family: "Helvetica Neue", sans-serif;
