@@ -2,10 +2,11 @@ import css from "./Nannie.module.css";
 import girl from "../../img/Image.png";
 import { useState } from "react";
 
-export default function Nannie() {
+export default function Nannie({ nanny }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Функція для перемикання стану картки
+  console.log(nanny.name);
+
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
@@ -27,9 +28,7 @@ export default function Nannie() {
       </div>
       {isExpanded && (
         <div className={css.cardDetails}>
-          <div className={css.reviews}>
-
-          </div>
+          <div className={css.reviews}></div>
           <button className={css.contactWithNanny}>Make an appointment</button>
         </div>
       )}

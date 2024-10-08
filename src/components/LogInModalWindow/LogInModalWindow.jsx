@@ -2,37 +2,28 @@ import { Field, Formik, Form } from "formik";
 import css from "./LogInModalWindow.module.css";
 // import { useDispatch } from "react-redux";
 // import { logIn } from "../../redux/auth/operations";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { useNavigate } from "react-router-dom";
 
 export default function LogInModalWindow({ close }) {
-  // const dispatch = useDispatch();
 
-  // const handleSubmit = (values, actions) => {
-  //   dispatch(logIn(values))
-  //     .unwrap()
-  //     .then((response) => {
-  //       console.log(response);
-  //       toast.success("Success!!!");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       toast.error(`${error}!!!`);
-  //     });
 
-  //   actions.resetForm();
-  // };
-
-  const handleSubmit = (values, actions) => {
-    toast.success("Success!!!");
-
-    close();
-    actions.resetForm();
-  };
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+    const handleSubmit = async (values, actions) => {
+      if (!isLoggedIn) {
+        setIsLoggedIn(true);
+        await doSignInWithEmailAndPassword(values.email, values.password);
+        navigate('/nannies')
+      }
+      close();
+      actions.resetForm();
+    };
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {

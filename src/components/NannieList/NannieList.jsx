@@ -1,18 +1,14 @@
-import { useSelector } from "react-redux";
+import { nanoid } from "@reduxjs/toolkit";
 import Nannie from "../Nannie/Nannie";
 import css from "./NannieList.module.css";
-import {  selectFilteredContacts } from "../../redux/contacts/selectors";
 
-
-export default function NannieList() {
-  const nannies = useSelector(selectFilteredContacts);
-
+export default function NannieList({ nannieArray }) {
   return (
     <>
       <ul className={css.cardList}>
-        {nannies.map((nannies) => (
-          <li className={css.card} key={nannies.id}>
-            <Nannie nannie={nannies} />
+        {nannieArray.map((nanny) => (
+          <li className={css.card} key={nanoid()}>
+            <Nannie nanny={nanny} />
           </li>
         ))}
       </ul>

@@ -1,39 +1,30 @@
 import { Field, Formik, Form } from "formik";
 import css from "./RegisterModalWindow.module.css";
-// import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/operations";
-import toast from "react-hot-toast";
+
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { useAuth } from "../contexts/authContexts/index.jsx";
 import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterModalWindow({ close }) {
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // const handleSubmit = (values, actions) => {
-  //   dispatch(logIn(values))
-  //     .unwrap()
-  //     .then((response) => {
-  //       console.log(response);
-  //       toast.success("Success!!!");
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       toast.error(`${error}!!!`);
-  //     });
-
-  //   actions.resetForm();
-  // };
-
-  // const {userLoggedIn} = useAuth();
   const [isRegistering, setIsRegistering] = useState(false);
   const handleSubmit = async (values, actions) => {
     if (!isRegistering) {
       setIsRegistering(true);
-      await doCreateUserWithEmailAndPassword(values.email, values.password);
+      try {
+        await doCreateUserWithEmailAndPassword(
+          values.email,
+          values.password,
+          values.name
+        );
+        navigate("/nannies");
+      } catch (error) {
+        console.error("Error during registration:", error);
+      }
     }
     close();
     actions.resetForm();
@@ -50,6 +41,7 @@ export default function RegisterModalWindow({ close }) {
       <div className={css.window}>
         <Formik
           initialValues={{
+            name: "",
             email: "",
             password: "",
           }}

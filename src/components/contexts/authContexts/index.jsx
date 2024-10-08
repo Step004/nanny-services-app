@@ -18,16 +18,20 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
-  async function initializeUser(user) {
-    if (user) {
-      setCurrentUser({ ...user });
-      setUserLoggedIn(true);
-    } else {
-      setUserLoggedIn(false);
-      setCurrentUser(null);
-    }
-    setLoading(false);
-    }
+ async function initializeUser(user) {
+   if (user) {
+     await user.reload();
+     setCurrentUser({
+       ...user,
+       name: user.displayName, 
+     });
+     setUserLoggedIn(true);
+   } else {
+     setUserLoggedIn(false);
+     setCurrentUser(null);
+   }
+   setLoading(false);
+ }
     const value = { currentUser, userLoggedIn, loading }
     return (
         <AuthContext.Provider value={value}>

@@ -4,6 +4,7 @@ import AuthNav from "../AuthNav/AuthNav.jsx";
 import css from "./AppBar.module.css";
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { useAuth } from "../contexts/authContexts/index.jsx";
 
 // import { useSelector } from "react-redux";
 // import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
@@ -11,8 +12,8 @@ import clsx from "clsx";
 export default function AppBar({ handleOpenModalLogIn, handleOpenModalRegister }) {
   const location = useLocation();
   const isHomePage = location.pathname === "/"; 
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isLoggedIn = false;
+  const { userLoggedIn } = useAuth();
+  const isLoggedIn = userLoggedIn;
 
   return (
     <header className={clsx(css.header, !isHomePage && css.headerFixed)}>
