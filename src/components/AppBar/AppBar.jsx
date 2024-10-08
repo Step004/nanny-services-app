@@ -12,7 +12,7 @@ export default function AppBar({ handleOpenModalLogIn, handleOpenModalRegister }
   const location = useLocation();
   const isHomePage = location.pathname === "/"; 
   // const isLoggedIn = useSelector(selectIsLoggedIn);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
     <header className={clsx(css.header, !isHomePage && css.headerFixed)}>

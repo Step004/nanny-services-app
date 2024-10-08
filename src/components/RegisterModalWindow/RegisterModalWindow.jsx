@@ -7,6 +7,8 @@ import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useAuth } from "../contexts/authContexts/index.jsx";
+import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js";
 
 export default function RegisterModalWindow({ close }) {
   // const dispatch = useDispatch();
@@ -26,9 +28,13 @@ export default function RegisterModalWindow({ close }) {
   //   actions.resetForm();
   // };
 
-  const handleSubmit = (values, actions) => {
-    toast.success("Success!!!");
-
+  // const {userLoggedIn} = useAuth();
+  const [isRegistering, setIsRegistering] = useState(false);
+  const handleSubmit = async (values, actions) => {
+    if (!isRegistering) {
+      setIsRegistering(true);
+      await doCreateUserWithEmailAndPassword(values.email, values.password);
+    }
     close();
     actions.resetForm();
   };
