@@ -9,9 +9,15 @@
     gap: 24px;
 }
 
+.nannieCardInf {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
 .photo {
     padding: 12px;
-    border: 2px solid rgba(240, 63, 59, 0.2);
+    border: 2px solid rgba(16, 57, 49, 0.2);
     border-radius: 30px;
     width: 120px;
     height: 120px;
@@ -20,8 +26,6 @@
     justify-content: center;
     align-items: center;
 }
-
-.aboutNanny {}
 
 .readMore {
     font-family: var(--font-family);
@@ -51,4 +55,91 @@
     line-height: 125%;
     letter-spacing: -0.01em;
     color: #fbfbfb;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 15px;
+}
+
+.firstRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.location {
+    display: flex;
+    gap: 48px;
+}
+
+.locationRating {
+    display: flex;
+    gap: 16px;
+}
+
+.favoriteIcon {
+    width: 26px;
+    height: 26px;
+    fill: var(--main);
+    cursor: pointer;
+}
+
+.filled {
+    width: 26px;
+    height: 26px;
+    fill: var(--main);
+    cursor: pointer;
+}
+
+.characteristic {
+    margin-bottom: 24px;
+}
+
+.description {
+    margin-bottom: 14px;
+}
+
+.characteristic {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+}
+
+.characteristicDet {
+    border-radius: 24px;
+    background: #f3f3f3;
+    padding: 8px 16px;
+}
+
+.nannyName {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    color: #11101c;
+}
+
+.nanny {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #8a8a89;
+    margin-bottom: 8px;
+}
+
+.locationRatingDet {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #11101c;
+}
+.local{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
 }
