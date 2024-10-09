@@ -86,7 +86,10 @@
 .fieldFirstFour {
     width: 232px;
 }
-
+.fieldFirstFourClock {
+    width: 232px;
+    cursor: pointer;
+}
 .fieldLast {
     width: 100%;
 }
@@ -181,6 +184,7 @@
     width: 151px;
     height: 180px;
     position: absolute;
+    left: 81px;
     border: 1px solid black;
     overflow-y: auto;
     scrollbar-width: none;
@@ -188,4 +192,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 6px;
+}
+
+.option {
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 125%;
+    text-align: center;
+    color: rgba(17, 16, 28, 0.3);
+}
+
+.option:hover {
+    color: #11101c;
 }
