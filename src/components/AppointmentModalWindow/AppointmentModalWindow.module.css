@@ -81,15 +81,25 @@
     padding: 16px 18px;
     height: 52px;
     box-sizing: border-box;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 125%;
+    color: #11101c;
 }
 
 .fieldFirstFour {
     width: 232px;
 }
+
 .fieldFirstFourClock {
     width: 232px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+
 .fieldLast {
     width: 100%;
 }

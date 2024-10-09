@@ -7,20 +7,19 @@ import { FaStar } from "react-icons/fa";
 import AppointmentModalWindow from "../AppointmentModalWindow/AppointmentModalWindow.jsx";
 
 function calculateAge(birthday) {
-  const birthDate = new Date(birthday); // Перетворюємо рядок дати на об'єкт Date
-  const today = new Date(); // Отримуємо поточну дату
-  let age = today.getFullYear() - birthDate.getFullYear(); // Обчислюємо різницю в роках
+  const birthDate = new Date(birthday);
+  const today = new Date(); 
+  let age = today.getFullYear() - birthDate.getFullYear(); 
 
-  // Перевіряємо, чи день народження вже пройшов у поточному році
   const monthDiff = today.getMonth() - birthDate.getMonth();
   if (
     monthDiff < 0 ||
     (monthDiff === 0 && today.getDate() < birthDate.getDate())
   ) {
-    age--; // Якщо ще не святкували день народження, зменшуємо вік на 1
+    age--; // 
   }
 
-  return age; // Повертаємо обчислений вік
+  return age; 
 }
 
 export default function Nannie({ nanny }) {
