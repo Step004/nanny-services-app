@@ -3,7 +3,7 @@ import clsx from "clsx";
 import css from "./Filters.module.css";
 import { FaChevronDown } from "react-icons/fa";
 
-const Filters = () => {
+const Filters = ({ onFilterChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Show all");
 
@@ -23,12 +23,13 @@ const Filters = () => {
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
-    setIsOpen(false); 
+    setIsOpen(false);
+    onFilterChange(option);
   };
 
   return (
     <div className={css.dropdown}>
-          <p className={ css.textFilters}>Filters</p>
+      <p className={css.textFilters}>Filters</p>
       <button
         className={clsx(css.button, isOpen && css.activeButton)}
         onClick={toggleDropdown}

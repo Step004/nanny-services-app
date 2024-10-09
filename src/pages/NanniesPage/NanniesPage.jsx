@@ -11,9 +11,50 @@ export default function NanniesPage({
   handleOpenModalRegister,
 }) {
   const [displayedNannies, setDisplayedNannies] = useState(3);
+  const [selectedFilter, setSelectedFilter] = useState("Show all");
+
   const handleLoadMore = () => {
-    setDisplayedNannies((prev) => prev + 3); 
+    setDisplayedNannies((prev) => prev + 3);
   };
+
+   const handleFilterChange = (filter) => {
+     setSelectedFilter(filter);
+     setDisplayedNannies(3);
+  };
+  
+  const getFilteredAndSortedNannies = () => {
+    let filteredNannies = [...nannieArray];
+
+    switch (selectedFilter) {
+      case "A to Z":
+        filteredNannies.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "Z to A":
+        filteredNannies.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "Less than 10$":
+        filteredNannies = filteredNannies.filter(
+          (nanny) => nanny.price_per_hour < 10
+        );
+        break;
+      case "Greater than 10$":
+        filteredNannies = filteredNannies.filter(
+          (nanny) => nanny.price_per_hour > 10
+        );
+        break;
+      case "Popular":
+        filteredNannies.sort((a, b) => b.rating - a.rating);
+        break;
+      case "Not popular":
+        filteredNannies.sort((a, b) => a.rating - b.rating);
+        break;
+      default:
+        break;
+    }
+
+    return filteredNannies;
+  };
+  const filteredNannies = getFilteredAndSortedNannies()
 
   return (
     <div className={css.container}>
@@ -24,15 +65,16 @@ export default function NanniesPage({
         handleOpenModalLogIn={handleOpenModalLogIn}
         handleOpenModalRegister={handleOpenModalRegister}
       />
-      <Filters />
-      <NannieList nannieArray={nannieArray.slice(0, displayedNannies)} />
-      {displayedNannies < nannieArray.length && (
-        <div className={css.loadMoreBtnContainer}>
-        <button onClick={handleLoadMore} className={css.loadMoreBtn}>
-          Load more
-          </button>
+      <Filters onFilterChange={handleFilterChange} />
+      <NannieList nannieArray={filteredNannies.slice(0, displayedNannies)} />
+      {displayedNannies < filteredNannies.length &&
+        filteredNannies.length > 0 && (
+          <div className={css.loadMoreBtnContainer}>
+            <button onClick={handleLoadMore} className={css.loadMoreBtn}>
+              Load more
+            </button>
           </div>
-      )}
+        )}
     </div>
   );
 }
