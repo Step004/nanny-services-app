@@ -40,6 +40,7 @@ function App() {
   const handleCloseModalRegister = () => {
     setIsOpenRegister(false);
   };
+
   return (
     <>
       <Layout>
@@ -67,7 +68,11 @@ function App() {
               />
               <Route
                 path="/favorites"
-                element={<FavoritesPage nannieArray={nannieArray} />}
+                element={
+                  <FavoritesPage
+                    nannieArray={nannieArray}
+                  />
+                }
               />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

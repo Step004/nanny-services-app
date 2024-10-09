@@ -1,34 +1,37 @@
 import { Field, Formik, Form } from "formik";
 import css from "./LogInModalWindow.module.css";
-// import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/operations";
-// import toast from "react-hot-toast";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
 import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 
 export default function LogInModalWindow({ close }) {
-
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-    const handleSubmit = async (values, actions) => {
-      if (!isLoggedIn) {
-        setIsLoggedIn(true);
-        await doSignInWithEmailAndPassword(values.email, values.password);
-        navigate('/nannies')
-      }
-      close();
-      actions.resetForm();
-    };
+  const handleSubmit = async (values, actions) => {
+    if (!isLoggedIn) {
+      setIsLoggedIn(true);
+      await doSignInWithEmailAndPassword(values.email, values.password);
+      navigate("/nannies");
+    }
+    close();
+    actions.resetForm();
+  };
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long")
+      .required("Password is required"),
+  });
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
@@ -38,6 +41,7 @@ export default function LogInModalWindow({ close }) {
             email: "",
             password: "",
           }}
+          validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           <Form className={css.form} autoComplete="off">

@@ -1,6 +1,6 @@
 import { Field, Formik, Form } from "formik";
 import css from "./RegisterModalWindow.module.css";
-
+import * as Yup from "yup";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useState } from "react";
@@ -35,6 +35,13 @@ export default function RegisterModalWindow({ close }) {
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+  const validationSchema = Yup.object({
+    email: Yup.string().email("Invalid email").required("Email is required"),
+    name: Yup.string().required("Name is required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long")
+      .required("Password is required"),
+  });
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
@@ -45,6 +52,7 @@ export default function RegisterModalWindow({ close }) {
             email: "",
             password: "",
           }}
+          validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           <Form className={css.form} autoComplete="off">

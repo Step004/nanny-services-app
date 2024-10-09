@@ -4,6 +4,7 @@ import { useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 import { FaStar } from "react-icons/fa";
+import AppointmentModalWindow from "../AppointmentModalWindow/AppointmentModalWindow.jsx";
 
 function calculateAge(birthday) {
   const birthDate = new Date(birthday); // Перетворюємо рядок дати на об'єкт Date
@@ -25,8 +26,7 @@ function calculateAge(birthday) {
 export default function Nannie({ nanny }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
-
-  console.log(nanny);
+  const [isOpenAppointment, setIsOpenAppointment] = useState(false);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
@@ -35,6 +35,12 @@ export default function Nannie({ nanny }) {
     setIsFavorite((prev) => !prev);
   };
 
+  const handleOpenModalAppointment = () => {
+    setIsOpenAppointment(true);
+  };
+  const handleCloseModalAppointment = () => {
+    setIsOpenAppointment(false);
+  };
   return (
     <div className={css.nannieCard}>
       <div className={css.photo}>
@@ -130,12 +136,21 @@ export default function Nannie({ nanny }) {
                 </li>
               ))}
             </ul>
-            <button className={css.contactWithNanny}>
+            <button
+              className={css.contactWithNanny}
+              onClick={handleOpenModalAppointment}
+            >
               Make an appointment
             </button>
           </div>
         )}
       </div>
+      {isOpenAppointment && (
+        <AppointmentModalWindow
+          nanny={nanny}
+          close={handleCloseModalAppointment}
+        />
+      )}
     </div>
   );
 }

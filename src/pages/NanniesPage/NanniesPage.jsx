@@ -19,7 +19,9 @@ export default function NanniesPage({
         handleOpenModalRegister={handleOpenModalRegister}
       />
       <Filters />
-      <NannieList nannieArray={nannieArray} />
+      <NannieList
+        nannieArray={nannieArray}
+      />
     </div>
   );
 }
