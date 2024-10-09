@@ -6,6 +6,7 @@ import Layout from "../Layout/Layout.jsx";
 import { useDatabase } from "../firebase/readData.js";
 import LogInModalWindow from "../LogInModalWindow/LogInModalWindow.jsx";
 import RegisterModalWindow from "../RegisterModalWindow/RegisterModalWindow.jsx";
+import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NanniesPage = lazy(() =>
@@ -21,7 +22,23 @@ const NotFoundPage = lazy(() =>
 function App() {
   const [isOpenLogIn, setIsOpenLogIn] = useState(false);
   const [isOpenRegister, setIsOpenRegister] = useState(false);
+  const [displayedNannies, setDisplayedNannies] = useState(3);
+  const [selectedFilter, setSelectedFilter] = useState("Show all");
   const { nannieArray, loading } = useDatabase();
+
+  const handleLoadMore = () => {
+    setDisplayedNannies((prev) => prev + 3);
+  };
+
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+    setDisplayedNannies(3);
+  };
+
+  const filteredNannies = getFilteredAndSortedNannies(
+    nannieArray,
+    selectedFilter
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -63,6 +80,10 @@ function App() {
                     nannieArray={nannieArray}
                     handleOpenModalLogIn={handleOpenModalLogIn}
                     handleOpenModalRegister={handleOpenModalRegister}
+                    filteredNannies={filteredNannies}
+                    handleFilterChange={handleFilterChange}
+                    displayedNannies={displayedNannies}
+                    handleLoadMore={handleLoadMore}
                   />
                 }
               />
@@ -71,6 +92,7 @@ function App() {
                 element={
                   <FavoritesPage
                     nannieArray={nannieArray}
+                    handleLoadMore={handleLoadMore}
                   />
                 }
               />

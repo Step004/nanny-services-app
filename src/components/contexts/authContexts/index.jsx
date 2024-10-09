@@ -23,7 +23,8 @@ export function AuthProvider({ children }) {
      await user.reload();
      setCurrentUser({
        ...user,
-       name: user.displayName, 
+       name: user.displayName,
+       uid: user.uid,
      });
      setUserLoggedIn(true);
    } else {

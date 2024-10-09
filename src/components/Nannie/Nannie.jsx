@@ -1,37 +1,51 @@
 import { nanoid } from "@reduxjs/toolkit";
 import css from "./Nannie.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdFavoriteBorder, MdFavorite } from "react-icons/md";
 import { GrLocation } from "react-icons/gr";
 import { FaStar } from "react-icons/fa";
 import AppointmentModalWindow from "../AppointmentModalWindow/AppointmentModalWindow.jsx";
-
-function calculateAge(birthday) {
-  const birthDate = new Date(birthday);
-  const today = new Date(); 
-  let age = today.getFullYear() - birthDate.getFullYear(); 
-
-  const monthDiff = today.getMonth() - birthDate.getMonth();
-  if (
-    monthDiff < 0 ||
-    (monthDiff === 0 && today.getDate() < birthDate.getDate())
-  ) {
-    age--; // 
-  }
-
-  return age; 
-}
+import {
+  addFavoriteNanny,
+  checkIfFavorite,
+  removeFavoriteNanny,
+} from "../../components/firebase/favoritesService.js";
+import { useAuth } from "../contexts/authContexts/index.jsx";
+import { calculateAge } from "../../functions/calculateAge.js";
 
 export default function Nannie({ nanny }) {
+  const { currentUser } = useAuth();
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(null);
   const [isOpenAppointment, setIsOpenAppointment] = useState(false);
+  
+  useEffect(() => {
+    if (currentUser) {
+      checkIfFavorite(currentUser.uid, nanny)
+        .then((favoriteStatus) => {
+          setIsFavorite(favoriteStatus);          
+        })
+        .catch((error) => {
+          console.error("Error fetching favorite status:", error);
+        });
+    }
+  }, [currentUser, nanny]);
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
   };
   const handleToggleFavorite = () => {
-    setIsFavorite((prev) => !prev);
+    if (currentUser) {
+      if (isFavorite) {
+        removeFavoriteNanny(currentUser.uid, nanny)
+          .then(() => setIsFavorite(false))
+          .catch((error) => console.error("Error removing favorite:", error));
+      } else {
+        addFavoriteNanny(currentUser.uid, nanny)
+          .then(() => setIsFavorite(true))
+          .catch((error) => console.error("Error adding favorite:", error));
+      }
+    }
   };
 
   const handleOpenModalAppointment = () => {

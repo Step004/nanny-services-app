@@ -10,8 +10,8 @@ const Filters = ({ onFilterChange }) => {
   const options = [
     "A to Z",
     "Z to A",
-    "Less than 10$",
-    "Greater than 10$",
+    "Price descending",
+    "Price ascending",
     "Popular",
     "Not popular",
     "Show all",

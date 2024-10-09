@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { app } from "../firebase/firebase.js";
-import { getDatabase, ref, get } from "firebase/database";
+import { ref, get } from "firebase/database";
+import { database } from "./firebase.js";
+
 
 export function useDatabase() {
   const [nannieArray, setNannieArray] = useState([]);
@@ -8,7 +9,7 @@ export function useDatabase() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const db = getDatabase(app);
+      const db = database;
       const dbRef = ref(db, "/");
       const snapshot = await get(dbRef);
       if (snapshot.exists()) {
