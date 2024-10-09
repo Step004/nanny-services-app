@@ -1,9 +1,6 @@
-// import { useDispatch, useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { doSignOut } from '../firebase/auth.js';
 import css from './UserMenu.module.css';
-// import { logOut } from '../../redux/auth/operations';
-// import { selectUser } from '../../redux/auth/selectors';
 import { FaUser } from "react-icons/fa";
 import { useAuth } from '../contexts/authContexts/index.jsx';
 
