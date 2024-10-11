@@ -8,6 +8,7 @@
     box-sizing: border-box;
     display: flex;
     gap: 24px;
+    border: 1px solid #11101c;
 }
 
 .nannieCardInf {
@@ -143,13 +144,14 @@
     font-size: 16px;
     line-height: 150%;
     color: #11101c;
+    text-align: center;
 }
 
-.local {
+/* .local {
     display: flex;
     flex-direction: row;
     align-items: start;
-}
+} */
 
 .starRating {
     fill: #ffc531;
@@ -229,4 +231,45 @@
     font-size: 14px;
     line-height: 129%;
     color: #11101c;
+}
+
+@media screen and (max-width: 925px) {
+    .location {
+        gap: 28px;
+    }
+
+    .locationRating {
+        gap: 8px;
+    }
+}
+
+@media screen and (max-width: 745px) {
+    .nannieCard {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .photo {
+        padding: 8px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .avatar {
+        width: 86px;
+        height: 86px;
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .betweenLoc {
+        display: none;
+    }
+
+    .locationRating {
+        flex-direction: column;
+        gap: 4px;
+        align-items: end;
+    }
 }

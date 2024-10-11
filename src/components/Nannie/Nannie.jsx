@@ -75,12 +75,12 @@ export default function Nannie({ nanny }) {
                   {nanny.location}
                 </p>
 
-                <span>|</span>
+                <span className={css.betweenLoc}>|</span>
                 <p className={css.locationRatingDet}>
                   <FaStar className={css.starRating} />
                   Rating: {nanny.rating}
                 </p>
-                <span>|</span>
+                <span className={css.betweenLoc}>|</span>
                 <p className={css.locationRatingDet}>
                   Price / 1 hour: <span>{nanny.price_per_hour}$</span>
                 </p>
