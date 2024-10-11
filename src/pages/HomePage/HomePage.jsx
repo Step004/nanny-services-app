@@ -8,7 +8,7 @@ export default function HomePage({
   handleOpenModalRegister,
 }) {
   return (
-    <div className={css.container}>
+    <main className={css.container}>
       <Helmet>
         <title>Home Page</title>
       </Helmet>
@@ -18,6 +18,6 @@ export default function HomePage({
         handleOpenModalRegister={handleOpenModalRegister}
       />
       <Hero />
-    </div>
+    </main>
   );
 }

@@ -13,7 +13,7 @@ export default function NanniesPage({
   handleLoadMore,
 }) {
   return (
-    <div className={css.container}>
+    <main className={css.container}>
       <Helmet>
         <title>Nannies Page</title>
       </Helmet>
@@ -31,6 +31,6 @@ export default function NanniesPage({
             </button>
           </div>
         )}
-    </div>
+    </main>
   );
 }

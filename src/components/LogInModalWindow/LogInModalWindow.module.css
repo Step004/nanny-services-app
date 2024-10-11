@@ -108,3 +108,10 @@
     cursor: pointer;
     fill: #11101c;
 }
+.registr{
+    cursor: pointer;
+    margin: 20px auto;
+    color: rgba(0, 98, 255, 0.8);
+    text-decoration: underline;
+    text-align: center;
+}

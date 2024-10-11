@@ -40,7 +40,7 @@ export default function FavoritesPage({
     selectedFilter
   );
   return (
-    <div className={css.container}>
+    <main className={css.container}>
       <Helmet>
         <title>Favorite Page</title>
       </Helmet>
@@ -66,6 +66,6 @@ export default function FavoritesPage({
             </button>
           </div>
         )}
-    </div>
+    </main>
   );
 }

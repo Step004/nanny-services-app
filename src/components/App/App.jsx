@@ -98,9 +98,17 @@ function App() {
               />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
-            {isOpenLogIn && <LogInModalWindow close={handleCloseModalLogIn} />}
+            {isOpenLogIn && (
+              <LogInModalWindow
+                close={handleCloseModalLogIn}
+                open={handleOpenModalRegister}
+              />
+            )}
             {isOpenRegister && (
-              <RegisterModalWindow close={handleCloseModalRegister} />
+              <RegisterModalWindow
+                close={handleCloseModalRegister}
+                open={handleOpenModalLogIn}
+              />
             )}
           </HelmetProvider>
         </Suspense>

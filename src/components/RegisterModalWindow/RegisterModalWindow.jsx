@@ -3,12 +3,12 @@ import css from "./RegisterModalWindow.module.css";
 import * as Yup from "yup";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js";
 import { useNavigate } from "react-router-dom";
 
-export default function RegisterModalWindow({ close }) {
+export default function RegisterModalWindow({ close, open }) {
   const navigate = useNavigate();
 
   const [isRegistering, setIsRegistering] = useState(false);
@@ -42,6 +42,20 @@ export default function RegisterModalWindow({ close }) {
       .min(6, "Password must be at least 6 characters long")
       .required("Password is required"),
   });
+
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (event.key === "Escape") {
+          close(); 
+        }
+      };
+
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }, [close]);
+  
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
@@ -100,6 +114,15 @@ export default function RegisterModalWindow({ close }) {
             <button type="submit" className={css.submitButton}>
               Sign Up
             </button>
+            <p
+              className={css.registr}
+              onClick={() => {
+                open();
+                close();
+              }}
+            >
+              Do you have an account? Log in
+            </p>
           </Form>
         </Formik>
       </div>

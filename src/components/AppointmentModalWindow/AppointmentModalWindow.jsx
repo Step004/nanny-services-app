@@ -4,16 +4,16 @@ import * as Yup from "yup";
 import { IoClose } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 export default function AppointmentModalWindow({
   close,
   nanny: { avatar_url, name },
 }) {
-   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedTime, setSelectedTime] = useState("");
-  
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -36,6 +36,18 @@ export default function AppointmentModalWindow({
       .matches(/^\+?3?8?(0\d{9})$/, "Invalid phone number format")
       .required("Number is required"),
   });
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        close();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [close]);
 
   const generateTimeOptions = (startHour, endHour, step) => {
     const options = [];

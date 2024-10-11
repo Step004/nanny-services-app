@@ -6,12 +6,12 @@ import { useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useAuth } from "../contexts/authContexts/index.jsx";
 
-// import { useSelector } from "react-redux";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
-
-export default function AppBar({ handleOpenModalLogIn, handleOpenModalRegister }) {
+export default function AppBar({
+  handleOpenModalLogIn,
+  handleOpenModalRegister,
+}) {
   const location = useLocation();
-  const isHomePage = location.pathname === "/"; 
+  const isHomePage = location.pathname === "/";
   const { userLoggedIn } = useAuth();
   const isLoggedIn = userLoggedIn;
 

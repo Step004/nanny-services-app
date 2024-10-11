@@ -12,6 +12,7 @@ import {
 } from "../../components/firebase/favoritesService.js";
 import { useAuth } from "../contexts/authContexts/index.jsx";
 import { calculateAge } from "../../functions/calculateAge.js";
+import toast from "react-hot-toast";
 
 export default function Nannie({ nanny }) {
   const { currentUser } = useAuth();
@@ -45,7 +46,7 @@ export default function Nannie({ nanny }) {
           .then(() => setIsFavorite(true))
           .catch((error) => console.error("Error adding favorite:", error));
       }
-    }
+    }else toast.error("You need to login for this operation!");
   };
 
   const handleOpenModalAppointment = () => {
