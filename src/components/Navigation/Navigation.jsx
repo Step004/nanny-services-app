@@ -7,7 +7,6 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 export default function Navigation({ isLoggedIn }) {
-
   return (
     <>
       <nav className={css.navigation}>
@@ -30,17 +29,9 @@ export default function Navigation({ isLoggedIn }) {
           className={css.select}
           onChange={(e) => (window.location.href = e.target.value)}
         >
-          <option value="/" className={buildLinkClass}>
-            Home
-          </option>
-          <option value="/nannies" className={buildLinkClass}>
-            Nannies
-          </option>
-          {isLoggedIn && (
-            <option value="/favorites" className={buildLinkClass}>
-              Favorites
-            </option>
-          )}
+          <option value="/">Home</option>
+          <option value="/nannies">Nannies</option>
+          {isLoggedIn && <option value="/favorites">Favorites</option>}
         </select>
       </nav>
     </>
