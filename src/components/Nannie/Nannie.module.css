@@ -1,6 +1,7 @@
 .nannieCard {
     border-radius: 24px;
-    width: 1184px;
+    width: 100%;
+    max-width: 1184px;
     background: #fbfbfb;
     border: none;
     padding: 24px;

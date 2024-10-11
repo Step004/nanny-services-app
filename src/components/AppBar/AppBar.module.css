@@ -31,21 +31,23 @@
   justify-content: space-between;
 }
 
-/* style for tablet */
 @media screen and (max-width: 1000px) {
   .header {
     padding: 20px 24px;
   }
-    .logotype {
-      font-size: 20px;
-    }
+
+  .logotype {
+    font-size: 20px;
+  }
 
 }
+
 @media screen and (max-width: 767px) and (min-width: 360px) {
   .header {
     padding: 20px 10px;
   }
-    .logotype {
-      font-size: 18px;
-    }
+
+  .logotype {
+    font-size: 18px;
+  }
 }

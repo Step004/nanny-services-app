@@ -13,24 +13,28 @@ export default function NanniesPage({
   handleLoadMore,
 }) {
   return (
-    <main className={css.container}>
+    <main>
       <Helmet>
         <title>Nannies Page</title>
       </Helmet>
-      <AppBar
-        handleOpenModalLogIn={handleOpenModalLogIn}
-        handleOpenModalRegister={handleOpenModalRegister}
-      />
-      <Filters onFilterChange={handleFilterChange} />
-      <NannieList nannieArray={filteredNannies.slice(0, displayedNannies)} />
-      {displayedNannies < filteredNannies.length &&
-        filteredNannies.length > 0 && (
-          <div className={css.loadMoreBtnContainer}>
-            <button onClick={handleLoadMore} className={css.loadMoreBtn}>
-              Load more
-            </button>
-          </div>
-        )}
+      <div className={css.appBar}>
+        <AppBar
+          handleOpenModalLogIn={handleOpenModalLogIn}
+          handleOpenModalRegister={handleOpenModalRegister}
+        />
+      </div>
+      <div className={css.container}>
+        <Filters onFilterChange={handleFilterChange} />
+        <NannieList nannieArray={filteredNannies.slice(0, displayedNannies)} />
+        {displayedNannies < filteredNannies.length &&
+          filteredNannies.length > 0 && (
+            <div className={css.loadMoreBtnContainer}>
+              <button onClick={handleLoadMore} className={css.loadMoreBtn}>
+                Load more
+              </button>
+            </div>
+          )}
+      </div>
     </main>
   );
 }

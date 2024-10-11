@@ -84,3 +84,26 @@
 .menuItem:not(.selected):hover {
     color: black;
 }
+
+@media screen and (max-width:1200px) {
+    .dropdown {
+        margin-top: 32px;
+        margin-bottom: 16px;
+    }
+
+    .button {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .dropdown {
+        margin-top: 20px;
+        margin-bottom: 16px;
+    }
+
+    .button {
+        width: 160px;
+        font-size: 16px;
+    }
+}
