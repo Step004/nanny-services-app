@@ -18,7 +18,7 @@ export default function AppBar({
   return (
     <header className={clsx(css.header, !isHomePage && css.headerFixed)}>
       <p className={css.logotype}>Nanny.Services</p>
-      <div className={css.navAndBut}>
+      
         <Navigation isLoggedIn={isLoggedIn} />
         {isLoggedIn ? (
           <UserMenu />
@@ -28,7 +28,7 @@ export default function AppBar({
             openReg={handleOpenModalRegister}
           />
         )}
-      </div>
+      
     </header>
   );
 }

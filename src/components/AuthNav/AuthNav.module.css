@@ -28,3 +28,25 @@
     margin-right: 8px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+    .regButton {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    .logButton {
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .regButton {
+        padding: 14px 15px;
+    }
+
+    .logButton {
+        padding: 14px 15px;
+    }
+}

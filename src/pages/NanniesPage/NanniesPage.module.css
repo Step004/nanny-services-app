@@ -19,17 +19,6 @@
     z-index: -1;
 }
 
-.example {
-    width: 500px;
-    height: 400px;
-    background: blue;
-}
-
-.text {
-    width: 100%;
-    height: 100px;
-    background: red;
-}
 .loadMoreBtnContainer{
     display: flex;
     justify-content: center;
