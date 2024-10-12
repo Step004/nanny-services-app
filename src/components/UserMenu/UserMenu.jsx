@@ -26,7 +26,7 @@ export default function UserMenu() {
       <button className={css.logout} onClick={handleLogout}>
         Logout
       </button>
-      <IoIosLogOut className={css.logoutSVG } />
+      <IoIosLogOut className={css.logoutSVG} onClick={handleLogout} />
     </div>
   );
 }

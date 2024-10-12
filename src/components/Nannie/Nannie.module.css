@@ -273,3 +273,41 @@
         align-items: end;
     }
 }
+
+@media screen and (max-width: 575px) {
+    .nannieCard {
+        position: relative;
+    }
+
+
+    .locationRating {
+        flex-direction: row;
+    }
+
+    .favoriteIconContainer {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .firstRow {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .nannieCard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .firstRow {
+        align-items: center;
+        gap: 16px;
+    }
+    .nanny{
+        text-align: center;
+    }
+}

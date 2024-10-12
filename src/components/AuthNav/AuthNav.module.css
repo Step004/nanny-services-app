@@ -61,9 +61,15 @@
 }
 
 @media screen and (max-width: 370px) {
+    .regButton {
+        padding: 14px 7px;
+        width: 45px;
+
+    }
+
     .logButton {
-        padding: 14px 10px;
-        width: 70px;
+        padding: 14px 7px;
+        width: 45px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

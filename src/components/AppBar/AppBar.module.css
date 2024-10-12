@@ -13,6 +13,7 @@
 .headerFixed {
   position: static;
   padding: 20px 0;
+  border-bottom: none
 }
 
 .logotype {
@@ -42,7 +43,7 @@
 
 }
 
-@media screen and (max-width: 767px) and (min-width: 360px) {
+@media screen and (max-width: 767px) {
   .header {
     padding: 20px 10px;
   }
