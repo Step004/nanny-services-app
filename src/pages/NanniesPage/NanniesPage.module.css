@@ -33,7 +33,7 @@
     width: 159px;
     height: 48px;
     cursor: pointer;
-    background: #103931;
+    background: var(--main);
     border: none;
     margin: 64px 0 100px 0;
 

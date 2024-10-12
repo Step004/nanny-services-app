@@ -7,7 +7,7 @@
     border: 1px solid rgba(251, 251, 251, 0.4);
     border-radius: 30px;
     padding: 14px 40px;
-    background: var(--button);
+    background: var(--main);
 
     font-family: var(--font-family);
     font-weight: 500;

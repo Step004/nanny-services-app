@@ -24,7 +24,8 @@ function App() {
   const [isOpenRegister, setIsOpenRegister] = useState(false);
   const [displayedNannies, setDisplayedNannies] = useState(3);
   const [selectedFilter, setSelectedFilter] = useState("Show all");
-  const { nannieArray, loading } = useDatabase();
+  let { nannieArray, loading } = useDatabase();
+  nannieArray = nannieArray.slice(0, -1);
 
   const handleLoadMore = () => {
     setDisplayedNannies((prev) => prev + 3);
@@ -110,6 +111,7 @@ function App() {
                 open={handleOpenModalLogIn}
               />
             )}
+            
           </HelmetProvider>
         </Suspense>
       </Layout>

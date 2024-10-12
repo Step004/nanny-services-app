@@ -1,15 +1,17 @@
 :root {
     --main: #103931;
+    --second-color: rgba(16, 57, 49, 0.2);
+    /* --main: #0957C3; */
+    /* --second-color: rgba(9, 87, 195, 0.2); */
+    /* --main:#F03F3B;
+    --second-color: rgba(240, 63, 59, 0.2); */
     --text: #fbfbfb;
     --name-text: #11101c;
-    --white: #fff;
-    --filter-text: rgba(17, 16, 28, 0.3);
     --bgr-color: #f3f3f3;
-    --button: #103931;
     --button-hover: #fbfbfb;
-    --button-text-hover: #103931;
     --rating: #ffc531;
 }
+
 @font-face {
     font-family: 'Helvetica Neue';
     src: url('../src/fonts/HelveticaNeueCyr-Roman.woff2') format('woff2');
@@ -69,11 +71,6 @@ a {
     text-decoration: none;
 }
 
-/* button {
-    border: none;
-    cursor: pointer;
-} */
-
 .closeModalBtn {
     width: 24px;
     height: 24px;
@@ -93,4 +90,3 @@ img {
     display: block;
     height: auto;
 }
-

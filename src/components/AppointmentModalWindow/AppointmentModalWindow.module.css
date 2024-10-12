@@ -33,7 +33,7 @@
     width: 100%;
     max-width: 438px;
     height: 52px;
-    background: #103931;
+    background: var(--main);
     border: none;
 
     font-family: var(--font-family);

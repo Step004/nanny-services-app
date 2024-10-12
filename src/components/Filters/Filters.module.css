@@ -34,7 +34,7 @@
 }
 
 .activeButton {
-    background-color: #103931;
+    background-color: var(--main);
 }
 
 .arrow {

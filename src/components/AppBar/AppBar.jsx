@@ -18,7 +18,7 @@ export default function AppBar({
   return (
     <header className={clsx(css.header, !isHomePage && css.headerFixed)}>
       <p className={css.logotype}>Nanny.Services</p>
-      
+      {!isLoggedIn && <div className={css.temp}></div>}
         <Navigation isLoggedIn={isLoggedIn} />
         {isLoggedIn ? (
           <UserMenu />
