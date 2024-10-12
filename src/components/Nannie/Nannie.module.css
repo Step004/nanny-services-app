@@ -8,7 +8,6 @@
     box-sizing: border-box;
     display: flex;
     gap: 24px;
-    border: 1px solid #11101c;
 }
 
 .nannieCardInf {
@@ -146,12 +145,6 @@
     color: #11101c;
     text-align: center;
 }
-
-/* .local {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-} */
 
 .starRating {
     fill: #ffc531;
@@ -297,7 +290,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 400px) {
     .nannieCard {
         flex-direction: column;
         align-items: center;

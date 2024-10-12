@@ -12,7 +12,8 @@
     z-index: 1000;
     box-sizing: border-box;
 
-    height: 90%;
+    height: auto;
+    max-height: 90%;
     overflow-y: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -128,9 +129,10 @@
 }
 
 @media screen and (max-width: 500px) {
-    .window{
+    .window {
         padding: 24px;
     }
+
     .logInText {
         font-size: 30px;
     }
