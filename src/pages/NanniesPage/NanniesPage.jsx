@@ -3,6 +3,7 @@ import css from "./NanniesPage.module.css";
 import AppBar from "../../components/AppBar/AppBar.jsx";
 import Filters from "../../components/Filters/Filters.jsx";
 import NannieList from "../../components/NannieList/NannieList.jsx";
+import PaletteSelector from "../../components/PaletteSelector/PaletteSelector.jsx";
 
 export default function NanniesPage({
   handleOpenModalLogIn,
@@ -35,6 +36,7 @@ export default function NanniesPage({
             </div>
           )}
       </div>
+      <PaletteSelector />
     </main>
   );
 }

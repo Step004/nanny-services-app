@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet-async";
 import AppBar from "../../components/AppBar/AppBar.jsx";
 import Filters from "../../components/Filters/Filters.jsx";
 import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";
+import PaletteSelector from "../../components/PaletteSelector/PaletteSelector.jsx";
 
 export default function FavoritesPage({
   handleOpenModalLogIn,
@@ -70,6 +71,7 @@ export default function FavoritesPage({
             </div>
           )}
       </div>
+      <PaletteSelector />
     </main>
   );
 }
