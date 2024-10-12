@@ -19,12 +19,12 @@ export default function Nannie({ nanny }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFavorite, setIsFavorite] = useState(null);
   const [isOpenAppointment, setIsOpenAppointment] = useState(false);
-  
+
   useEffect(() => {
     if (currentUser) {
       checkIfFavorite(currentUser.uid, nanny)
         .then((favoriteStatus) => {
-          setIsFavorite(favoriteStatus);          
+          setIsFavorite(favoriteStatus);
         })
         .catch((error) => {
           console.error("Error fetching favorite status:", error);
@@ -46,7 +46,7 @@ export default function Nannie({ nanny }) {
           .then(() => setIsFavorite(true))
           .catch((error) => console.error("Error adding favorite:", error));
       }
-    }else toast.error("You need to login for this operation!");
+    } else toast.error("You need to login for this operation!");
   };
 
   const handleOpenModalAppointment = () => {

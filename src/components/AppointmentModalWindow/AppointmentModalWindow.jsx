@@ -64,7 +64,7 @@ export default function AppointmentModalWindow({
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
-      <div className={clsx(css.window, css.formContainer)}>
+      <div className={css.window}>
         <Formik
           initialValues={{
             address: "",

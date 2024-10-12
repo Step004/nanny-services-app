@@ -3,13 +3,19 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 565px;
+    width: 90%;
+    max-width: 565px;
     padding: 64px;
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     z-index: 1000;
     box-sizing: border-box;
+
+    height: 90%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .overlay {
@@ -18,13 +24,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(11, 11, 11, 0.6);;
+    background-color: rgba(11, 11, 11, 0.6);
+    ;
     z-index: 999;
 }
 
 .submitButton {
     border-radius: 30px;
-    width: 438px;
+    width: 100%;
+    max-width: 438px;
     height: 52px;
     background: #103931;
     border: none;
@@ -62,9 +70,9 @@
     flex-direction: column;
     gap: 18px;
     margin-bottom: 40px;
-    width: 438px;
+    width: 100%;
+    max-width: 438px;
 }
-
 .field {
     border: 1px solid rgba(17, 16, 28, 0.1);
     border-radius: 12px;
@@ -84,7 +92,7 @@
 
 .eyeIcon {
     position: absolute;
-    left: 400px;
+    right: 15px;
     /* Відстань від правого краю */
     top: 50%;
     transform: translateY(-50%);
@@ -92,12 +100,15 @@
     border: none;
     cursor: pointer;
 }
-.eye{
+
+.eye {
     width: 20px;
     height: 20px;
-    fill: #11101c;;
+    fill: #11101c;
+    ;
 }
-.closeBtn{
+
+.closeBtn {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -108,10 +119,31 @@
     cursor: pointer;
     fill: #11101c;
 }
-.registr{
+
+.registr {
     cursor: pointer;
     margin: 20px auto;
     color: rgba(0, 98, 255, 0.8);
     text-decoration: underline;
     text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+    .window {
+        padding: 32px;
+    }
+
+    .logInText {
+        font-size: 30px;
+    }
+
+    .welcomeText {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .fields {
+        gap: 16px;
+        margin-bottom: 30px;
+    }
 }
