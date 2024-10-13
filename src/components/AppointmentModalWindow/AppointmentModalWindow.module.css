@@ -43,6 +43,12 @@
     letter-spacing: -0.01em;
     color: #fbfbfb;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.submitButton:hover {
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 .logInText {
@@ -85,6 +91,10 @@
     color: #11101c;
 }
 
+.field:hover {
+    border-color: rgba(17, 16, 28, 0.5);
+}
+
 .fieldFirstFour {
     width: 232px;
 }
@@ -94,6 +104,21 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    position: relative;
+}
+
+.clock {
+    position: relative;
+}
+
+.clockIcon {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .fieldLast {
@@ -165,23 +190,10 @@
     column-gap: 8px;
 }
 
-.clock {
-    position: relative;
-}
-
-.clockIcon {
-    position: absolute;
-    right: 18px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
 .errorMsg {
     color: red;
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .clockContainer {
@@ -213,6 +225,11 @@
 
 .option:hover {
     color: #11101c;
+}
+
+.errorMsgCont {
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 450px) {

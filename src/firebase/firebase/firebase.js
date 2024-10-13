@@ -1,14 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
+import env from "../../utils/env.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBxR8hi4S4wFx2KpfOKBgndO8KxrRfkRvQ",
-  authDomain: "nannies-services-4ec04.firebaseapp.com",
-  projectId: "nannies-services-4ec04",
-  storageBucket: "nannies-services-4ec04.appspot.com",
-  messagingSenderId: "209955685442",
-  appId: "1:209955685442:web:ec3775c737efc9b8a759db",
+  apiKey: env("VITE_APIKEY"),
+  authDomain: env("VITE_AUTHDOMAIN"),
+  projectId: env("VITE_PROJECTID"),
+  storageBucket: env("VITE_STORAGEBUCKET"),
+  messagingSenderId: env("VITE_MESSAGINGSENDERID"),
+  appId: env("VITE_APPID"),
 };
 
 const app = initializeApp(firebaseConfig);

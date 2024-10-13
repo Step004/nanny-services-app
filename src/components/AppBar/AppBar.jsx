@@ -4,7 +4,7 @@ import AuthNav from "../AuthNav/AuthNav.jsx";
 import css from "./AppBar.module.css";
 import { useLocation } from "react-router-dom";
 import clsx from "clsx";
-import { useAuth } from "../contexts/authContexts/index.jsx";
+import { useAuth } from "../../firebase/contexts/authContexts/index.jsx";
 
 export default function AppBar({
   handleOpenModalLogIn,

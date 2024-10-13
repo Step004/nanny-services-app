@@ -96,28 +96,43 @@ export default function AppointmentModalWindow({
                 </div>
               </div>
               <div className={css.fourFields}>
-                <div>
+                <div className={css.errorMsgCont}>
                   <Field
                     name="address"
                     type="text"
                     placeholder="Address"
                     className={clsx(css.field, css.fieldFirstFour)}
                   />
+                  <ErrorMessage
+                    name="address"
+                    component="span"
+                    className={css.errorMsg}
+                  />
                 </div>
-                <div>
+                <div className={css.errorMsgCont}>
                   <Field
                     name="number"
                     type="text"
                     placeholder="+380"
                     className={clsx(css.field, css.fieldFirstFour)}
                   />
+                  <ErrorMessage
+                    name="number"
+                    component="span"
+                    className={css.errorMsg}
+                  />
                 </div>
-                <div>
+                <div className={css.errorMsgCont}>
                   <Field
                     name="age"
                     type="text"
                     placeholder="Child's age"
                     className={clsx(css.field, css.fieldFirstFour)}
+                  />
+                  <ErrorMessage
+                    name="age"
+                    component="span"
+                    className={css.errorMsg}
                   />
                 </div>
                 <div className={css.clock}>
@@ -144,65 +159,45 @@ export default function AppointmentModalWindow({
                   )}
                 </div>
               </div>
-              <div>
+              <div className={css.errorMsgCont}>
                 <Field
                   name="email"
                   type="email"
                   placeholder="Email"
                   className={clsx(css.field, css.fieldLast)}
                 />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.errorMsg}
+                />
               </div>
-              <div>
+              <div className={css.errorMsgCont}>
                 <Field
                   name="parentName"
                   type="text"
                   placeholder="Father's or mother's name"
                   className={clsx(css.field, css.fieldLast)}
                 />
+                <ErrorMessage
+                  name="parentName"
+                  component="span"
+                  className={css.errorMsg}
+                />
               </div>
-              <div>
+              <div className={css.errorMsgCont}>
                 <Field
                   name="comment"
                   as="textarea"
                   placeholder="Comment"
                   className={clsx(css.field, css.fieldComment)}
                 />
+                <ErrorMessage
+                  name="comment"
+                  component="span"
+                  className={css.errorMsg}
+                />
               </div>
-              <ErrorMessage
-                name="meetingTime"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="comment"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="parentName"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="email"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="age"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="number"
-                component="span"
-                className={css.errorMsg}
-              />
-              <ErrorMessage
-                name="address"
-                component="span"
-                className={css.errorMsg}
-              />
             </div>
 
             <button type="submit" className={css.submitButton}>

@@ -45,6 +45,12 @@
     letter-spacing: -0.01em;
     color: #fbfbfb;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.submitButton:hover {
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 .logInText {
@@ -74,6 +80,7 @@
     width: 100%;
     max-width: 438px;
 }
+
 .field {
     border: 1px solid rgba(17, 16, 28, 0.1);
     border-radius: 12px;
@@ -81,6 +88,10 @@
     width: 100%;
     height: 52px;
     box-sizing: border-box;
+}
+
+.field:hover {
+    border-color: rgba(17, 16, 28, 0.5);
 }
 
 .field::placeholder {
@@ -94,7 +105,6 @@
 .eyeIcon {
     position: absolute;
     right: 15px;
-    /* Відстань від правого краю */
     top: 50%;
     transform: translateY(-50%);
     background: transparent;
@@ -102,11 +112,16 @@
     cursor: pointer;
 }
 
+
 .eye {
     width: 20px;
     height: 20px;
     fill: #11101c;
-    ;
+    transition: transform 0.3s ease;
+}
+
+.eye:hover {
+    transform: scale(1.05);
 }
 
 .closeBtn {
@@ -119,6 +134,11 @@
     border: none;
     cursor: pointer;
     fill: #11101c;
+    transition: transform 0.3s ease;
+}
+
+.closeBtn:hover {
+    transform: scale(1.05);
 }
 
 .registr {
@@ -127,6 +147,17 @@
     color: rgba(0, 98, 255, 0.8);
     text-decoration: underline;
     text-align: center;
+}
+
+.errorMsgCont {
+    display: flex;
+    flex-direction: column;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 14px;
+    margin-left: 10px;
 }
 
 @media screen and (max-width: 500px) {

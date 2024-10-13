@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAuth } from "../../components/contexts/authContexts/index.jsx";
-import { getFavorites } from "../../components/firebase/favoritesService.js";
+import { useAuth } from "../../firebase/contexts/authContexts/index.jsx";
+import { getFavorites } from "../../firebase/firebase/favoritesService.js";
 import NannieList from "../../components/NannieList/NannieList";
 import css from "./FavoritesPage.module.css";
 import { Helmet } from "react-helmet-async";

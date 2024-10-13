@@ -3,7 +3,7 @@ import { lazy, Suspense, useState } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
-import { useDatabase } from "../firebase/readData.js";
+import { useDatabase } from "../../firebase/firebase/readData.js";
 import LogInModalWindow from "../LogInModalWindow/LogInModalWindow.jsx";
 import RegisterModalWindow from "../RegisterModalWindow/RegisterModalWindow.jsx";
 import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";

@@ -9,8 +9,8 @@ import {
   addFavoriteNanny,
   checkIfFavorite,
   removeFavoriteNanny,
-} from "../../components/firebase/favoritesService.js";
-import { useAuth } from "../contexts/authContexts/index.jsx";
+} from "../../firebase/firebase/favoritesService.js";
+import { useAuth } from "../../firebase/contexts/authContexts/index.jsx";
 import { calculateAge } from "../../functions/calculateAge.js";
 import toast from "react-hot-toast";
 

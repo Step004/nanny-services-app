@@ -16,7 +16,14 @@
     letter-spacing: -0.01em;
     color: #fbfbfb;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+.regButton:hover {
+    color: var(--hover);
+    transform: scale(1.05);
+}
+
 
 .logButton {
     border: 1px solid rgba(251, 251, 251, 0.4);
@@ -32,6 +39,12 @@
     color: #fbfbfb;
     margin-right: 8px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logButton:hover {
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 @media screen and (max-width: 800px) {

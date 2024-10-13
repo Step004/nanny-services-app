@@ -1,14 +1,11 @@
 :root {
     --main: #103931;
     --second-color: rgba(16, 57, 49, 0.2);
-    /* --main: #0957C3; */
-    /* --second-color: rgba(9, 87, 195, 0.2); */
-    /* --main:#F03F3B;
-    --second-color: rgba(240, 63, 59, 0.2); */
     --text: #fbfbfb;
     --name-text: #11101c;
     --bgr-color: #f3f3f3;
     --button-hover: #fbfbfb;
+    --hover: #d2c3c3;
     --rating: #ffc531;
 }
 

@@ -1,11 +1,11 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import css from "./RegisterModalWindow.module.css";
 import * as Yup from "yup";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { doCreateUserWithEmailAndPassword } from "../firebase/auth.js";
+import { doCreateUserWithEmailAndPassword } from "../../firebase/firebase/auth.js";
 import { useNavigate } from "react-router-dom";
 
 export default function RegisterModalWindow({ close, open }) {
@@ -43,19 +43,19 @@ export default function RegisterModalWindow({ close, open }) {
       .required("Password is required"),
   });
 
-    useEffect(() => {
-      const handleKeyDown = (event) => {
-        if (event.key === "Escape") {
-          close(); 
-        }
-      };
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        close();
+      }
+    };
 
-      document.addEventListener("keydown", handleKeyDown);
-      return () => {
-        document.removeEventListener("keydown", handleKeyDown);
-      };
-    }, [close]);
-  
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [close]);
+
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
@@ -78,25 +78,46 @@ export default function RegisterModalWindow({ close, open }) {
               information.
             </p>
             <div className={css.fields}>
-              <Field
-                type="text"
-                name="name"
-                placeholder="Name"
-                className={css.field}
-              />
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email"
-                className={css.field}
-              />
-              <div className={css.passwordWrapper}>
+              <div className={css.errorMsgCont}>
                 <Field
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
+                  type="text"
+                  name="name"
+                  placeholder="Name"
                   className={css.field}
                 />
+                <ErrorMessage
+                  name="name"
+                  component="span"
+                  className={css.errorMsg}
+                />
+              </div>
+              <div className={css.errorMsgCont}>
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className={css.field}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.errorMsg}
+                />
+              </div>
+              <div className={css.passwordWrapper}>
+                <div className={css.errorMsgCont}>
+                  <Field
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className={css.field}
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="span"
+                    className={css.errorMsg}
+                  />
+                </div>
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}

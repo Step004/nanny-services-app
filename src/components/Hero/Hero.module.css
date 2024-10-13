@@ -56,6 +56,13 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.navLink:hover {
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 .svgLink {

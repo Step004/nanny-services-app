@@ -32,7 +32,6 @@ const PaletteSelector = () => {
       changePalette(event.target.value);
     });
 
-    // Видалення слухача подій при демонтовані компонента
     return () => {
       selector.removeEventListener("change", changePalette);
     };

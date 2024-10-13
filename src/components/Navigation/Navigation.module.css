@@ -6,6 +6,12 @@
     color: var(--button-hover);
     font-family: var(--font-family);
     position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.link:hover{
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 .mobileNav {

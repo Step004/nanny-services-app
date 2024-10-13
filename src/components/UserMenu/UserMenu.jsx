@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { doSignOut } from "../firebase/auth.js";
+import { doSignOut } from "../../firebase/firebase/auth.js";
 import css from "./UserMenu.module.css";
 import { FaUser } from "react-icons/fa";
-import { useAuth } from "../contexts/authContexts/index.jsx";
+import { useAuth } from "../../firebase/contexts/authContexts/index.jsx";
 import { IoIosLogOut } from "react-icons/io";
 
 export default function UserMenu() {

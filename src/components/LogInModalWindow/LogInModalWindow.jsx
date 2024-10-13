@@ -1,10 +1,10 @@
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import css from "./LogInModalWindow.module.css";
 import { RxEyeOpen } from "react-icons/rx";
 import { GoEyeClosed } from "react-icons/go";
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
-import { doSignInWithEmailAndPassword } from "../firebase/auth.js";
+import { doSignInWithEmailAndPassword } from "../../firebase/firebase/auth.js";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
@@ -33,19 +33,19 @@ export default function LogInModalWindow({ close, open }) {
       .required("Password is required"),
   });
 
-      useEffect(() => {
-        const handleKeyDown = (event) => {
-          if (event.key === "Escape") {
-            close();
-          }
-        };
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        close();
+      }
+    };
 
-        document.addEventListener("keydown", handleKeyDown);
-        return () => {
-          document.removeEventListener("keydown", handleKeyDown);
-        };
-      }, [close]);
-  
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [close]);
+
   return (
     <>
       <div className={css.overlay} onClick={close}></div>
@@ -66,19 +66,33 @@ export default function LogInModalWindow({ close, open }) {
               and continue your babysitter search.
             </p>
             <div className={css.fields}>
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email"
-                className={css.field}
-              />
-              <div className={css.passwordWrapper}>
+              <div className={css.errorMsgCont}>
                 <Field
-                  type={showPassword ? "text" : "password"}
-                  name="password"
-                  placeholder="Password"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
                   className={css.field}
                 />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.errorMsg}
+                />
+              </div>
+              <div className={css.passwordWrapper}>
+                <div className={css.errorMsgCont}>
+                  <Field
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className={css.field}
+                  />
+                  <ErrorMessage
+                    name="password"
+                    component="span"
+                    className={css.errorMsg}
+                  />
+                </div>
                 <button
                   type="button"
                   onClick={togglePasswordVisibility}

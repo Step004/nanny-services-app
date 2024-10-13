@@ -32,6 +32,12 @@
     letter-spacing: -0.01em;
     color: #fbfbfb;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logout:hover {
+    color: var(--hover);
+    transform: scale(1.05);
 }
 
 .userIcon {
@@ -80,17 +86,19 @@
         gap: 5px;
     }
 
-    .logout{
+    .logout {
         display: none;
     }
+
     .logoutSVG {
-        display: block;   
+        display: block;
         width: 30px;
         height: 30px;
     }
 }
+
 @media screen and (max-width: 355px) {
-   .userIcon {
-    display: none;
-}
+    .userIcon {
+        display: none;
+    }
 }
