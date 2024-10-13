@@ -8,9 +8,9 @@ import { AuthProvider } from "./firebase/contexts/authContexts/index.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </AuthProvider>
   </StrictMode>
 );

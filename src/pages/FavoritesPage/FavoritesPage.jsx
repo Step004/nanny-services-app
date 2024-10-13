@@ -9,11 +9,7 @@ import Filters from "../../components/Filters/Filters.jsx";
 import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";
 import PaletteSelector from "../../components/PaletteSelector/PaletteSelector.jsx";
 
-export default function FavoritesPage({
-  handleOpenModalLogIn,
-  handleOpenModalRegister,
-  handleLoadMore,
-}) {
+export default function FavoritesPage() {
   const [selectedFilter, setSelectedFilter] = useState("Show all");
   const [favoriteNannies, setFavoriteNannies] = useState([]);
   const [displayedNannies, setDisplayedNannies] = useState(3);
@@ -23,6 +19,9 @@ export default function FavoritesPage({
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter);
     setDisplayedNannies(3);
+  };
+  const handleLoadMore = () => {
+    setDisplayedNannies((prev) => prev + 3);
   };
 
   useEffect(() => {
@@ -46,10 +45,7 @@ export default function FavoritesPage({
         <title>Favorite Page</title>
       </Helmet>
       <div className={css.appBar}>
-        <AppBar
-          handleOpenModalLogIn={handleOpenModalLogIn}
-          handleOpenModalRegister={handleOpenModalRegister}
-        />
+        <AppBar />
       </div>
       <div className={css.container}>
         <Filters onFilterChange={handleFilterChange} />

@@ -4,15 +4,45 @@ import AppBar from "../../components/AppBar/AppBar.jsx";
 import Filters from "../../components/Filters/Filters.jsx";
 import NannieList from "../../components/NannieList/NannieList.jsx";
 import PaletteSelector from "../../components/PaletteSelector/PaletteSelector.jsx";
+import { useState } from "react";
+import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";
+import LogInModalWindow from "../../components/LogInModalWindow/LogInModalWindow.jsx";
+import RegisterModalWindow from "../../components/RegisterModalWindow/RegisterModalWindow.jsx";
 
 export default function NanniesPage({
-  handleOpenModalLogIn,
-  handleOpenModalRegister,
-  filteredNannies,
-  handleFilterChange,
-  displayedNannies,
-  handleLoadMore,
+  nannieArray,
 }) {
+  const [selectedFilter, setSelectedFilter] = useState("Show all");
+  const [displayedNannies, setDisplayedNannies] = useState(3);
+  const [isOpenLogIn, setIsOpenLogIn] = useState(false);
+  const [isOpenRegister, setIsOpenRegister] = useState(false);
+
+  const handleOpenModalLogIn = () => {
+    setIsOpenLogIn(true);
+  };
+  const handleCloseModalLogIn = () => {
+    setIsOpenLogIn(false);
+  };
+
+  const handleOpenModalRegister = () => {
+    setIsOpenRegister(true);
+  };
+  const handleCloseModalRegister = () => {
+    setIsOpenRegister(false);
+  };
+
+  const handleLoadMore = () => {
+    setDisplayedNannies((prev) => prev + 3);
+  };
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter);
+    setDisplayedNannies(3);
+  };
+
+  const filteredNannies = getFilteredAndSortedNannies(
+    nannieArray,
+    selectedFilter
+  );
   return (
     <main>
       <Helmet>
@@ -37,6 +67,18 @@ export default function NanniesPage({
           )}
       </div>
       <PaletteSelector />
+      {isOpenLogIn && (
+        <LogInModalWindow
+          close={handleCloseModalLogIn}
+          open={handleOpenModalRegister}
+        />
+      )}
+      {isOpenRegister && (
+        <RegisterModalWindow
+          close={handleCloseModalRegister}
+          open={handleOpenModalLogIn}
+        />
+      )}
     </main>
   );
 }
