@@ -8,14 +8,16 @@ import { useState } from "react";
 import { getFilteredAndSortedNannies } from "../../functions/getFilteredAndSortedNannies.js";
 import LogInModalWindow from "../../components/LogInModalWindow/LogInModalWindow.jsx";
 import RegisterModalWindow from "../../components/RegisterModalWindow/RegisterModalWindow.jsx";
+import { useDatabase } from "../../firebase/firebase/readData.js";
 
-export default function NanniesPage({
-  nannieArray,
-}) {
+export default function NanniesPage() {
   const [selectedFilter, setSelectedFilter] = useState("Show all");
   const [displayedNannies, setDisplayedNannies] = useState(3);
   const [isOpenLogIn, setIsOpenLogIn] = useState(false);
   const [isOpenRegister, setIsOpenRegister] = useState(false);
+
+    let { nannieArray } = useDatabase();
+    nannieArray = nannieArray.slice(0, -1);
 
   const handleOpenModalLogIn = () => {
     setIsOpenLogIn(true);

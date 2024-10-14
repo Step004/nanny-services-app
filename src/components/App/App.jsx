@@ -3,7 +3,6 @@ import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Route, Routes } from "react-router-dom";
 import Layout from "../Layout/Layout.jsx";
-import { useDatabase } from "../../firebase/firebase/readData.js";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
 const NanniesPage = lazy(() =>
@@ -17,8 +16,7 @@ const NotFoundPage = lazy(() =>
 );
 
 function App() {
-  let { nannieArray } = useDatabase();
-  nannieArray = nannieArray.slice(0, -1);
+
   return (
     <>
       <Layout>
@@ -28,11 +26,11 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route
                 path="/nannies"
-                element={<NanniesPage nannieArray={nannieArray} />}
+                element={<NanniesPage />}
               />
               <Route
                 path="/favorites"
-                element={<FavoritesPage nannieArray={nannieArray} />}
+                element={<FavoritesPage />}
               />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
